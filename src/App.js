@@ -125,7 +125,7 @@ function Calculator() {
       }
 
       if (toDo !== "-") {
-          wcExp = wcExp.replace(/[*\/+-]+$/, "");
+          wcExp = wcExp.replace(/[*+-]+$/, "");
       } else if (toDo === "-" && wcExp.endsWith("-")) {
           return;
       }
@@ -166,7 +166,7 @@ function Calculator() {
               wcIO = "0";
           }
 
-          if (wcExp === "" || /[*\/+-]$/.test(wcExp)) {
+          if (wcExp === "" || /[*+-]$/.test(wcExp)) {
               wcExp += "0";
           }
       }
@@ -179,8 +179,8 @@ function Calculator() {
       // working copy
       let wcExp = exp;
 
-      wcExp = wcExp.replace(/[*\/+-]+$/, "");
-
+      wcExp = wcExp.replace(/[*+-]+$/, "");
+      // eslint-disable-next-line
       const answer = eval(wcExp).toString();
 
       setExp(wcExp + "=" + answer);
